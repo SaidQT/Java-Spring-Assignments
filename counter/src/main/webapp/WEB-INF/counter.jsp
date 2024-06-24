@@ -10,7 +10,8 @@
 </head>
 <body>
 <p>You have visited <c:out value="${count}"/> times.</p>
-<p><a href='/'>Test Another visit</a></p>
+<p><a href='/'>Test visit</a></p>
+<p><a href='/increment'>Test another visit</a></p>
 <button><a href='/reset'>Reset</a></button>
 </body>
 </html>
