@@ -22,8 +22,6 @@ public class HopperController {
     	model.addAttribute("price", 100);
     	model.addAttribute("description", "Rare");
     	model.addAttribute("vendor", "Gold center");
-    	
-    
         return "index.jsp";
     }
     //...
