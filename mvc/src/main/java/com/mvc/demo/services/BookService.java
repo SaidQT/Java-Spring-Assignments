@@ -36,7 +36,7 @@ public class BookService {
 		return bookRepository.save(b);
  }
 
-	// retrieves a book
+
 	public Book findBook(Long id) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		if (optionalBook.isPresent()) {
