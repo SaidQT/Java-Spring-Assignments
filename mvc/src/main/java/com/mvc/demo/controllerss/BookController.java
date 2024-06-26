@@ -1,5 +1,7 @@
 package com.mvc.demo.controllerss;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -49,5 +51,10 @@ public class BookController{
     	model.addAttribute("lang",b.getLanguage());
     	return "show.jsp";
     }
-    
+    @GetMapping(value="/books")
+    public String showBooks(Model model) {
+    	List<Book> books= bookService.allBooks();
+    	model.addAttribute("books", books);
+    	return "index.jsp";
+    }
 }
