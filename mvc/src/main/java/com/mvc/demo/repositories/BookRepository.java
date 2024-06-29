@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.mvc.demo.models.Book;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, Long>{
+public interface BookRepository extends CrudRepository<Book,Long>{
     // this method retrieves all the books from the database
     List<Book> findAll();
     // this method finds books with descriptions containing the search string

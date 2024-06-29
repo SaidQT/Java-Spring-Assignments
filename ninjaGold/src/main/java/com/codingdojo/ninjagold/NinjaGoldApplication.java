@@ -8,6 +8,8 @@ public class NinjaGoldApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NinjaGoldApplication.class, args);
+		NinjaController ninja= new NinjaController();
+		
 	}
 
 }

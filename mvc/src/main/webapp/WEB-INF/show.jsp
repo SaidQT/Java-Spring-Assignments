@@ -11,6 +11,6 @@
 	<h1><c:out value= "${title}"></c:out></h1>
 	<p>Description: <c:out value="${desc}"></c:out></p>
 	<p>Number of pages: <c:out value="${number}"></c:out></p>
-	<p>Language: <c:out value="${lang}"></c:out></p>
+	<p>Language: <c:out value="${l  ang}"></c:out></p>
 </body>
 </html>

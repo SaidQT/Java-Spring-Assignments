@@ -13,9 +13,13 @@
 	<div class="mainheader">
 		<div class='header'>
 			<h2>Your Gold</h2>
-			<p><c:out value="${count}"></c:out></p>
+			<p>
+				<c:out value="${count}"></c:out>
+			</p>
 		</div>
-		<button><a href="/reset">Reset Gold</a></button>
+		<button>
+			<a href="/reset">Reset Gold</a>
+		</button>
 	</div>
 	<div class="container">
 		<div class="card">
@@ -24,9 +28,7 @@
 				<p>(earns 10-20 gold)</p>
 				<form action='/play' method='post'>
 					<input type='hidden' name='game' value='farm'>
-					<button>
-						Find Gold!
-					</button>
+					<button>Find Gold!</button>
 				</form>
 			</div>
 		</div>
@@ -35,10 +37,8 @@
 			<div>
 				<p>(earns 10-20 gold)</p>
 				<form action='/play' method='post'>
-					<input type='hidden' name= 'game' value='cave'>
-					<button>
-						Find Gold!
-					</button>
+					<input type='hidden' name='game' value='cave'>
+					<button>Find Gold!</button>
 				</form>
 			</div>
 		</div>
@@ -48,9 +48,7 @@
 				<p>(earns 2-5 gold)</p>
 				<form action='/play' method='post'>
 					<input type='hidden' name='game' value='house'>
-					<button>
-					Find Gold!
-					</button>
+					<button>Find Gold!</button>
 				</form>
 			</div>
 		</div>
@@ -60,9 +58,7 @@
 				<p>(earns/takes 0-50 gold)</p>
 				<form action='/play' method='post'>
 					<input type='hidden' name='game' value='quest'>
-					<button>
-						Find Gold!
-					</button>
+					<button>Find Gold!</button>
 				</form>
 			</div>
 		</div>
@@ -72,23 +68,20 @@
 				<p>(takes 5-20 gold)</p>
 				<form action='/play' method='post'>
 					<input type='hidden' name='game' value='spa'>
-					<button>
-						Pay Gold!
-					</button>
+					<button>Pay Gold!</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	<h3>Activities:</h3>
 	<div class="activities">
-			<c:forEach var= "part" items= "${activity}">
-				<c:if test="${part.indexOf('won') != -1}">					
-						<p style="color:green;"><c:out value="${part}"></c:out></p>
-				</c:if>
-				<c:if test="${part.indexOf('lost') !=-1}">
-					<p style="color:red;"><c:out value="${part}"></c:out></p>
-				</c:if>
-			</c:forEach>
+	
+		<c:if test="${coloring eq 'green'}">
+			<p style="color:green"><c:out value="${log}"></c:out></p>
+			</c:if>
+			<c:if test="${coloring eq 'red'}">
+			<p style="color:red"><c:out value="${log}"></c:out></p>
+			</c:if>
 	</div>
 </body>
 </html>
