@@ -31,5 +31,9 @@ public class BurgerService {
 	            return null;
 	        }
 	    }
+	    public Burger updateBurger(Burger burger) {
+	        return burgerRepository.save(burger);
+
+	    }
 	}
 

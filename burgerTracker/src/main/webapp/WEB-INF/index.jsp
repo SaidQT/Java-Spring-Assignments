@@ -31,6 +31,7 @@
 					<td scope="row"><c:out value="${burger.name}"></c:out></td>
 					<td><c:out value="${burger.restaurantName}"></c:out></td>
 					<td><c:out value="${burger.rating}"></c:out></td>
+					<td><a href="/edit/${burger.id}">Edit</a></td>
 
 				</tr>
 			</c:forEach>

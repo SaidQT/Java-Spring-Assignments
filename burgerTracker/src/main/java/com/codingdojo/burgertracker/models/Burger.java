@@ -29,7 +29,7 @@ public class Burger {
     @NotNull
     @Size(min = 3, max = 40, message="Restaurant name must be at least 3 characters")
     private String restaurantName;
-    @NotNull
+    @NotNull(message="Rating must be an integer between 1 and 5")
     @Min(value= 1,message="Rating must be an integer between 1 and 5")
     @Max(value = 5, message="Rating must be an integer between 1 and 5")
     private Integer rating;
@@ -67,6 +67,12 @@ public class Burger {
 	}
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	@PrePersist
     protected void onCreate(){
