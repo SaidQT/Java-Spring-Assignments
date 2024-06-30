@@ -14,7 +14,7 @@
 	<h2>Edit a Burger</h2>
 
 
-	<form:form action="/burgers" method="post" modelAttribute="burger">
+	<form:form action="/burgers/edit/${burger.id }" method="post" modelAttribute="burger">
 	 <input type="hidden" name="_method" value="put">
 		<p>
 			<form:label path="name">Name</form:label>
