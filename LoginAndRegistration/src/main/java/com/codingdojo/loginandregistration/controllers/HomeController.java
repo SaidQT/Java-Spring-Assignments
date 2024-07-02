@@ -21,58 +21,54 @@ public class HomeController {
 	private UserService userServ;
 
 	@GetMapping("/")
-	public String index(@ModelAttribute("user") User newUser  ,
-			@ModelAttribute("newLogin") User User)
-	{
+	public String index(@ModelAttribute("user") User newUser, @ModelAttribute("newLogin") User User) {
 		return "register.jsp";
 	}
-	
-	
-	
-	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("user") User newUser, 
-	                       BindingResult result, Model model, HttpSession session) {
 
-	    if (result.hasErrors()) {
-	        model.addAttribute("newLogin", new User()); 
-	        return "register.jsp";
-	    }
-	    User user= userServ.register(newUser, result);
-	    return "redirect:/"; 
+	@PostMapping("/register")
+	public String register(@Valid @ModelAttribute("user") User newUser, BindingResult result, Model model,
+			HttpSession session) {
+		User user = userServ.register(newUser, result);
+
+		if (result.hasErrors()) {
+			model.addAttribute("newLogin", new User());
+			return "register.jsp";
+		}
+		if (session.getAttribute("userid") == null) {
+			session.setAttribute("userid", user.getId());
+			session.setAttribute("name", user.getUserName());
+		}
+		return "redirect:/home";
 	}
 
-
 	@PostMapping("/login")
-	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
-	                    BindingResult result, Model model, HttpSession session) {
+	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult result, Model model,
+			HttpSession session) {
 		User user = userServ.login(newLogin, result);
-	    if (result.hasErrors()) {
-            model.addAttribute("user", new User());
-	        return "register.jsp"; 
-	    }
+		if (result.hasErrors()) {
+			model.addAttribute("user", new User());
+			return "register.jsp";
+		}
 
-	    session.setAttribute("userid", user.getId());
-	    session.setAttribute("name", user.getUserName());
-	    
-	    return "redirect:/home";
-		
+		if (session.getAttribute("userid") == null) {
+			session.setAttribute("userid", user.getId());
+			session.setAttribute("name", user.getUserName());
+		}
+			return "redirect:/home";
 	}
 
 	@GetMapping("/home")
 	public String home(HttpSession session) {
 		if (session == null) {
-			return "redirect:/"; 
-	}
-		else {
+			return "redirect:/";
+		} else {
 			return "welcome.jsp";
 		}
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}
 }
-
-
