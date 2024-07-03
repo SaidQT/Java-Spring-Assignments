@@ -1,0 +1,33 @@
+.part2{
+	display:flex;
+	justify-content:space-between;
+}
+body{
+	padding:40px;
+}
+hr{
+	width:50%;
+	margin-right:70%;
+}
+.red{
+	color:red;
+}
+.purple{
+	color:purple;
+}
+.green{
+	color:green;
+}
+button a{
+	text-decoration:none;
+	color:black;
+}
+button, input[type="submit"]{
+	padding:4px;
+	width:90px;
+	margin-left:33%;
+	
+}
+.buttons{
+	display:flex;
+}

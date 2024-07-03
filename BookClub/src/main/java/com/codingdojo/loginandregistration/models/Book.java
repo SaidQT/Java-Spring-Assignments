@@ -33,7 +33,8 @@ public class Book {
 	private String author;
 	@NotNull
 	@Size(min = 5, message= "Message be at least 5 characters")
-	private Integer myThoughts;
+	@Column(columnDefinition="TEXT")
+	private String myThoughts;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -50,6 +51,47 @@ public class Book {
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getMyThoughts() {
+		return myThoughts;
+	}
+
+	public void setMyThoughts(String myThoughts) {
+		this.myThoughts = myThoughts;
+	}
+
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(Object object) {
+		this.user = (User) object;
 	}
 
 	@PreUpdate

@@ -6,6 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+
 import com.codingdojo.loginandregistration.models.LoginUser;
 import com.codingdojo.loginandregistration.models.User;
 import com.codingdojo.loginandregistration.repositories.UserRepository;
@@ -30,6 +31,11 @@ public class UserService {
 		String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
 		newUser.setPassword(hashed);
 		return userRepo.save(newUser);
+	}
+	public User findByID(Long id) {
+		Optional<User> user = userRepo.findById(id);
+		User bookUser= user.get(); 
+		return bookUser;
 	}
 
 	public User login(LoginUser newLogin, BindingResult result) {

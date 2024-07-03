@@ -1,7 +1,9 @@
 form, h2, h1 {
 	text-align: center;
 }
-
+body{
+	padding:50px;
+}
 label {
 	display: block;
 	margin-bottom: 0.5rem;
