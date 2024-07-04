@@ -90,7 +90,7 @@ public class BookController {
 		return "edit.jsp";
 	}
 
-	@RequestMapping(value="/editBook/{bookid}", method=RequestMethod.PUT)
+	@RequestMapping(value = "/editBook/{id}", method = RequestMethod.PUT)
 	public String update(@Valid @ModelAttribute("book") Book book, BindingResult result, Model model,
 			HttpSession session) {
 		if (result.hasErrors()) {

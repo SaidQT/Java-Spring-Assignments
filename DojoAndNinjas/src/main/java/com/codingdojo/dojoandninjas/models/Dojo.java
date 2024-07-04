@@ -11,6 +11,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 
 @Entity
@@ -20,6 +22,8 @@ public class Dojo {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
+ @Size(min=5, max=40)
+ @NotNull
  private String name;
  @Column(updatable=false)
  private Date createdAt;
