@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.assignments.LoginandRegistration.Models.Course;
+
 import com.assignments.LoginandRegistration.Models.User;
 import com.assignments.LoginandRegistration.service.CourseService;
 import com.assignments.LoginandRegistration.service.UserService;
@@ -85,19 +86,27 @@ public class CourseController {
 
 		return "redirect:/classes";
 	}
+
 	@GetMapping("/cancel")
 	public String cancelAction() {
 		return "redirect:/classes";
 	}
+
 	@DeleteMapping("/classes/{id}")
-    public String destroy(@PathVariable("id") Long id) {
-        courseServ.deleteById(id);
-        return "redirect:/classes";
-    }
+	public String destroy(@PathVariable("id") Long id) {
+		courseServ.deleteById(id);
+		return "redirect:/classes";
+	}
+
 	@GetMapping("/classes/{id}")
-	public String showCourse(@PathVariable("id") Long id, Model model) {
-		Course shownCourse=courseServ.findCourse(id);
+	public String showCourse(@PathVariable("id") Long id, Model model, HttpSession session) {
+		if (session.getAttribute("userid") == null) {
+			return "redirect:/";
+		}
+		Course shownCourse = courseServ.findCourse(id);
 		model.addAttribute("course", shownCourse);
+
 		return "show.jsp";
 	}
+
 }

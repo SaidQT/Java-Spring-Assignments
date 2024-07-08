@@ -36,6 +36,7 @@
 				<th scope="col">Instructor</th>
 				<th scope="col">Weekday</th>
 				<th scope="col">Price</th>
+				<th scope="col">Time</th>
 				
 			</tr>
 		</thead>
@@ -50,10 +51,10 @@
 					<td scope="row"><a href="classes/${course.id}"><c:out value="${course.name}"></c:out></a></td>
 				</c:if>
 					<td><c:out value="${course.user.userName}"></c:out></td>
-					<td><fmt:formatDate value="${course.day}" pattern="EE" />
+					<td><c:out value="${course.day}"></c:out></td>
 					
 					<td> $ <c:out value="${course.price}"></c:out></td>
-					
+					<td><c:out value="${course.time}"></c:out></td>
 					</tr>
 			</c:forEach>
 		</tbody>

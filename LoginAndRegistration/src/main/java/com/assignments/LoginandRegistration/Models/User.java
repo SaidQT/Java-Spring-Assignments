@@ -46,11 +46,13 @@ public class User {
 	private String confirm;
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Course> courses;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
+
 
 	@PrePersist
 	protected void onCreate() {

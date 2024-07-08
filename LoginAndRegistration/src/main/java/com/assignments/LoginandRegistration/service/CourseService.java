@@ -28,6 +28,10 @@ public class CourseService {
 		b.setUser(user);
 		return courseRepo.save(b);
 	}
+	public Course update(Course b) {
+		
+		return courseRepo.save(b);
+	}
 
 	public void deleteById(Long id) {
 		courseRepo.deleteById(id);
@@ -41,4 +45,5 @@ public class CourseService {
 			return null;
 		}
 	}
+	
 }

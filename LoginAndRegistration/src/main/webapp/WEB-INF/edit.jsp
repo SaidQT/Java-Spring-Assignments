@@ -41,6 +41,11 @@
 			<form:input type="number" path="price" />
 			<form:errors path="price" />
 		</p>
+		<p>
+			<form:label path="time">Time</form:label>
+			<form:input path="time" />
+			<form:errors path="time" />
+		</p>
 
 		<p>
 			<form:label path="description">Description</form:label>

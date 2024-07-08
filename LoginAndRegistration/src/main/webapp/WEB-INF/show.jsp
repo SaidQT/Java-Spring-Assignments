@@ -15,12 +15,28 @@
 <title>${course.name}</title>
 </head>
 <body>
-<h2><c:out value="${course.name}"></c:out> with <c:out value="${course.user.userName}"></c:out></h2>
-<h4>Day: <fmt:formatDate value="${course.day}" pattern="EEEE" /></h4>
-<h4>Price: $ <c:out value="${course.price}"></c:out></h4>
-<p><c:out value="${course.description}"></c:out></p>
-
-<br>
-<hr>
+	<h2>
+		<c:out value="${course.name}"></c:out>
+		with
+		<c:out value="${course.user.userName}"></c:out>
+	</h2>
+	<h4>
+		Day:
+		<c:out value="${course.day}"></c:out>
+	</h4>
+	<h4>
+		Price: $
+		<c:out value="${course.price}"></c:out>
+	</h4>
+	<p>
+		<c:out value="${course.description}"></c:out>
+	</p>
+	<p>
+		Time:
+		<c:out value="${course.time}"></c:out>
+	</p>
+	<br>
+	<hr>
+	
 </body>
 </html>

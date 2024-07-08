@@ -1,7 +1,8 @@
 package com.assignments.LoginandRegistration.Models;
 
-import java.sql.Time;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale.Category;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,17 +13,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table
+@Table(name = "courses")
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,16 +35,39 @@ public class Course {
 	@Size(min = 3, message = "Course name must be at least 3 characters")
 	private String name;
 	@NotNull
-	@DateTimeFormat(pattern = "EEEE")
-	private Date day;
+	@Pattern(regexp = "^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)$", message = "Must be a day of the week")
+	private String day;
 	@NotNull
-	@Size(min=5,message="Description must be at least 5 characters")
-	@Column(columnDefinition="TEXT")
+	@Size(min = 5, message = "Description must be at least 5 characters")
+	@Column(columnDefinition = "TEXT")
 	private String description;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "instructor_id")
+	private User user;
 	@NotNull
 	@Min(1)
 	private Double price;
+	@NotNull(message = "Time must not be null")
+	@Pattern(regexp = "^\\d{2}:\\d{2}$", message = "Time must be in HH:MM format")
+	private String time;
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+	
 
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	public Double getPrice() {
 		return price;
@@ -50,14 +77,8 @@ public class Course {
 		this.price = price;
 	}
 
-
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "instructor_id")
-	private User user;
-
 	public Course() {
-		
+
 	}
 
 	public Long getId() {
@@ -76,17 +97,9 @@ public class Course {
 		this.name = name;
 	}
 
-	public Date getDay() {
+	public String getDay() {
 		return day;
 	}
-
-	public void setDay(Date day) {
-		this.day = day;
-	}
-
-
-
-	
 
 	public String getDescription() {
 		return description;
@@ -103,14 +116,6 @@ public class Course {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-
-
-	@Column(updatable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createdAt;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date updatedAt;
 
 	@PrePersist
 	protected void onCreate() {
