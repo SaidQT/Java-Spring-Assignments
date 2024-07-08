@@ -1,3 +1,10 @@
+.cotainer{
+     display: flex;
+     justify-content: space-around;
+     text-align: center;
+     margin: 20px;
+}
+
 form, h2, h1 {
 	text-align: center;
 }
@@ -7,7 +14,8 @@ label {
 	margin-bottom: 0.5rem;
 }
 
-input[type="text"], input[type="number"], input[type="password"], textarea {
+input[type="text"], input[type="number"], input[type="password"],
+	textarea {
 	width: 100%;
 	padding: 0.5rem;
 	font-size: 1rem;
@@ -20,7 +28,7 @@ textarea {
 	min-height: 100px; /* Set a minimum height */
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	padding: 0.75rem 1rem;
 	font-size: 1rem;
 	background-color: #007bff;
@@ -29,17 +37,12 @@ input[type="submit"]{
 	border-radius: 4px;
 	cursor: pointer;
 }
+
 input[type="submit"]:hover {
 	background-color: #0056b3;
 }
-.errors{
-	display:block;
-}
-.sections{
-	display:flex;
-	justify-content:space-evenly;
-}
-.part2{
-	display:flex;
-	justify-content:space-between;
+
+h1{
+	text-align:center;
+	color:#2b78e4;
 }

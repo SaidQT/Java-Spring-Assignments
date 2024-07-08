@@ -1,0 +1,19 @@
+.header{
+	display:flex;
+	justify-content:space-between;
+}
+.edit{
+	box-shadow:1px 1px 1px black;
+	width:50px;
+}
+.create{
+	box-shadow:1px 1px 1px black;
+	width:120px;
+}
+button a{
+	text-decoration:none;
+	color:black;
+}
+table button{
+	margin-left:5px;
+}

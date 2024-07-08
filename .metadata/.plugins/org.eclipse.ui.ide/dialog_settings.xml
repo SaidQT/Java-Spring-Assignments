@@ -57,6 +57,12 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\LoginAndRegistration\target\test-classes\com\assignments\LoginandRegistration"/>
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\saveTravels"/>
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\Exam"/>
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\LoginAndRegistration"/>
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\BeltExam"/>
+			<item value="C:\Users\HomePC\Desktop\SpringProjects\ProductsCategories"/>
 			<item value="C:\Users\HomePC\Desktop\SpringProjects\BookClub"/>
 			<item value="C:\Users\HomePC\Desktop\SpringProjects\mvc"/>
 			<item value="C:\Users\HomePC\Desktop\SpringProjects\books"/>

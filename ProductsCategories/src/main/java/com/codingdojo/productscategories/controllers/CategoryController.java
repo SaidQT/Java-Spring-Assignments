@@ -55,7 +55,7 @@ public class CategoryController {
 	@PostMapping("/create/category/{id}")
 	public String createProductforCategory(@PathVariable("id") Long id,@RequestParam("productId") Long productId) {
 		Category shownCategory = categoryService.findById(id);
-		Product product= productService.findById(id);
+		Product product= productService.findById(productId);
 		shownCategory.getProducts().add(product);
 		categoryService.createCategory(shownCategory);
 		return "redirect:/";
