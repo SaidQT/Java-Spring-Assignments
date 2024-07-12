@@ -1,0 +1,46 @@
+.card-containerr {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Default size for wider screens */
+    gap: 20px;
+}
+
+.cardd {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 8px;
+    width:300px;
+}
+
+.cardd:hover {
+    transform: translateY(-5px);
+}
+
+.cardd-info {
+    padding: 15px;
+}
+
+.cardd-info h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.card-info p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .cardd-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted size for smaller screens */
+        gap: 15px; /* Optional: Adjust gap for smaller screens */
+    }
+    
+    .cardd {
+        /* Adjust card size for smaller screens */
+        min-width: 200px;
+        max-width: 250px;
+    }
+}
